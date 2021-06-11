@@ -1,14 +1,14 @@
+# Find the max value in the list
+# 리스트 최대값 찾기
 
-#Find the max value in the list
-#리스트 최대값 찾기
+input_value = [3, 5, 6, 1, 2, 4]
 
-input = [3, 5, 6, 1, 2, 4]
 
 def find_max_num(array):
     num_max = array[0]
     for num in array:
         if num > num_max:
-            num_max  = num
+            num_max = num
     return num_max
 
 
@@ -20,10 +20,5 @@ def find_max_num(array):
 #         else:
 #                 return num
 
-result = find_max_num(input)
+result = find_max_num(input_value)
 print(result)
-
-
-
-
-
