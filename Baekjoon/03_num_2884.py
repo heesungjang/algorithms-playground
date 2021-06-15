@@ -8,3 +8,6 @@ elif M <= 44 and H >= 1:
     print(H-1, M+15)
 else:
     print(23, M+15)
+
+
+

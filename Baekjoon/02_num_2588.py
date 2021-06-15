@@ -16,5 +16,5 @@ A_B2 = A * int(B[2])
 A_B1 = A * int(B[1])
 A_B0 = A * int(B[0])
 A_B = A * int(B)
+print(A_B2, A_B1, A_B0, A_B, sep="\n")
 
-print(A_B2, A_B1, A_B0, A_B, sep='\n')
