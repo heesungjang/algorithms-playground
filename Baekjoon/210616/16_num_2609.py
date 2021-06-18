@@ -13,6 +13,5 @@ def gcd(x, y):
 def lcm(x, y):
     return x * y // gcd(x, y)
 
-
 print(gcd(a, b))
 print(lcm(a, b))
