@@ -1,2 +1,3 @@
-# Study-algorithms
-This repo is to log through my algorithm studies
+📌 Study-algorithms
+
+알고리즘 공부 저장 공간 
