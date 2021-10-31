@@ -29,3 +29,36 @@ while (true) {
 }
 
 console.log(result.split("").reverse().join(""));
+
+// 재귀함수 버전
+
+function y(n) {
+    if (n == 1 || n == 0) {
+        return String(n);
+    }
+
+    return String(n % 2) + y(Math.floor(n / 2));
+}
+
+//                 Return
+// y(11)        String(11 % 2) + y(Math.floor(11 / 2))  ===> 1 + 101    ===> 1101
+// y(5)         String(5 %  2) + y(Math.floor(5  /  2))  ===> String(1) + 01
+//y(2)          String(2 % 2) + y(Math.floor(2   /  2 )) ===> String(0) + 1 ==> 01
+//y(1)            1
+
+// reverse
+function r(n) {
+    if (n == 1 || n == 0) {
+        return String(n);
+    }
+    return r(Math.floor(n / 2)) + String(n % 2);
+}
+
+//                 Return
+// y(11)        r(Math.floor(11 / 2)) + String(11 % 2)  ===> 101 + String(1) ===> 1011
+//y(5)          r(Math.floor(5  /  2)) + String(5 % 2)  ===> 10 + String(1)
+//y(2)          r(Math.floor(2  /  2)) + String(2 % 2)  ===> 1 + String(0)
+//y(1)          1
+
+console.log(y(11));
+console.log(r(11));
