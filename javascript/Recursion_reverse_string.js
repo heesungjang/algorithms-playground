@@ -27,3 +27,19 @@ while (true) {
 }
 
 console.log(result);
+
+function 문자열뒤집기(문자) {
+    if (문자.length == 1) {
+        return 문자;
+    }
+
+    return 문자[문자.length - 1] + 문자열뒤집기(문자.slice(0, 문자.length - 1));
+}
+
+console.log(문자열뒤집기("jangheesung"));
+// 순번     return
+//  1       문자열뒤집기(문자.slice(0, 문자.length - 1)) + 문자[문자.length - 1];
+//  2
+//  3
+//  4
+//  5
