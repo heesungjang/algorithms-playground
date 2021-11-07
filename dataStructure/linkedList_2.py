@@ -57,11 +57,22 @@ class LinkedList:
         return node
 
     def add_node(self, index, value):
+        """
+        1. index === 0일 경우:
+            링크드 리스트에 가장 앞쪽, 즉 head를 변경하는 경우이다.
+            new_node를 할당하고
+            만약 index == 0이라면 새로운 노드의 next를 head로 할당
+            self.head를 새로운 노드로 설정
+        """
         new_node = Node(value)
         if index == 0:
             new_node.next = self.head
             self.head = new_node
             return
+        """
+        2. 삽입하고자 하는 위치 -1의 노드를 찾음
+        
+        """
         new_node = Node(value)
         node = self.get_node(index-1)
         next_node = node.next
