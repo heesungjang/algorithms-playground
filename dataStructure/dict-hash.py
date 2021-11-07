@@ -4,10 +4,11 @@ class Dict:
         self.items = [None] * 8
     
     def put(self, key, value) -> None:
-        self.items[hash(key)%8]  = value
+        self.items[hash(key)% len(self.items)]  = value
     
     def get(self, key):
-        return self.items[hash(key)%8]
+        index = hash(key)%len(self.items)
+        return self.items[index]
     
 
 new_dict = Dict()
