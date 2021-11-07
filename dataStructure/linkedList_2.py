@@ -56,6 +56,18 @@ class LinkedList:
             count += 1
         return node
 
+    def add_node(self, index, value):
+        new_node = Node(value)
+        if index == 0:
+            new_node.next = self.head
+            self.head = new_node
+            return
+        new_node = Node(value)
+        node = self.get_node(index-1)
+        next_node = node.next
+        node.next = new_node
+        new_node.next = next_node
+
 
 # head_node = Node(1)
 # print(head_node.data) # 첫번째 노드
