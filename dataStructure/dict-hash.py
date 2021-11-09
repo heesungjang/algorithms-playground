@@ -8,6 +8,7 @@ class Dict:
     
     def get(self, key):
         index = hash(key)%len(self.items)
+         
         return self.items[index]
     
 
@@ -18,3 +19,6 @@ print(new_dict.items)
 new_dict.put("fast", "빠른")
 
 print(new_dict.get("fast"))
+
+
+
