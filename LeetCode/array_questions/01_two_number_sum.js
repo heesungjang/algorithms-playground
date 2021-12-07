@@ -1,7 +1,7 @@
 // 정렬 (two Pointer 방식)
 const targetNum = 10;
 const array = [3, 5, -4, 8, 11, 1, -1, 6];
-function twoNumberSum(array, targetNum) {
+function twoNumberSumPointer(array, targetNum) {
   const sortedArray = array.sort((a, b) => a - b);
 
   let left = 0;
@@ -19,5 +19,20 @@ function twoNumberSum(array, targetNum) {
   }
   return [];
 }
+console.log(twoNumberSumPointer(array, targetNum));
 
-console.log(twoNumberSum(array, targetNum));
+// 정렬 (Brute Force Approach 방식)
+function twoNumberSumBrute(array, targetNum) {
+  for (let i = 0; i < array.length - 1; i++) {
+    const firstNum = array[i];
+    for (let j = i + 1; j < array.length; j++) {
+      const secondNum = array[j];
+      if (firstNum + secondNum === targetNum) {
+        return [firstNum, secondNum];
+      }
+    }
+  }
+  return [];
+}
+
+console.log(twoNumberSumBrute(array, targetNum));
