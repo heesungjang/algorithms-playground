@@ -36,3 +36,35 @@ function twoNumberSumBrute(array, targetNum) {
 }
 
 console.log(twoNumberSumBrute(array, targetNum));
+
+// 정렬 (hash table 방식)
+/**
+ *
+ * const targetNum = 10;
+ * const array = [-4, -1, 1,  3, 5,  6, 8, 11]
+ *  -4
+ *   -1
+ *   1
+ *   3
+ *   5
+ *   6
+ *   8
+ *   --break
+ * }
+ */
+function twoNumberSumHash(array, targetNum) {
+  let temp = [];
+
+  for (const currentNum of array) {
+    let potentialMatch = targetNum - currentNum;
+    if (potentialMatch in temp) {
+      return [potentialMatch, currentNum];
+    } else {
+      temp[currentNum] = true;
+    }
+  }
+
+  return [];
+}
+
+console.log(twoNumberSumHash(array, targetNum));
