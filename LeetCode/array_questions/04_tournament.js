@@ -1,11 +1,14 @@
 /**
  * all teams matches all teams
  * only two team begin and end each match
- * if win gets  5 points
- * [home, away]
- * [0 away win, 1 home win]
  *
- * output = Python
+ * if win gets  5 points
+ *
+ * [home, away]
+ *
+ * result = [0: away win, 1:home win]
+ *
+ * sample output = Python
  */
 
 const competitions = [
