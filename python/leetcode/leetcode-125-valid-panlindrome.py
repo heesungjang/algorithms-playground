@@ -4,7 +4,7 @@ from typing import Deque
 s = "A man, a plan, a canal: Panama"
 
 
-# Using pointer approach
+# Using Two Pointer approach
 def is_palindrome(s: str) -> bool:
     target_str = []
 
