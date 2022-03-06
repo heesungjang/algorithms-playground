@@ -1,4 +1,11 @@
-def isPalindrome(s: str) -> bool:
+import collections
+from typing import Deque
+
+s = "A man, a plan, a canal: Panama"
+
+
+# Using pointer approach
+def is_palindrome(s: str) -> bool:
     target_str = []
 
     for char in s:
@@ -18,5 +25,22 @@ def isPalindrome(s: str) -> bool:
     return True
 
 
-s = "A man, a plan, a canal: Panama"
-isPalindrome(s)
+is_palindrome(s)
+
+
+# Using Deque
+def is_palindrome_with_deque(string: str) -> bool:
+    target_strs: Deque = collections.deque()
+
+    for char in string:
+        if char.isalnum():
+            target_strs.append(char.lower())
+
+    while len(target_strs) > 1:
+        if target_strs.popleft() != target_strs.pop():
+            return False
+
+    return True
+
+
+is_palindrome_with_deque(s)
