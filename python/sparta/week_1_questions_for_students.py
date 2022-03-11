@@ -3,6 +3,7 @@
 # 최빈값 찾기
 import collections
 from pprint import pprint
+from string import ascii_lowercase
 from typing import List
 
 text = "hello, this is sparta"
@@ -43,3 +44,24 @@ def find_number_in_array(nums: List[int], target) -> bool:
 
 
 find_number_in_array([3, 5, 6, 1, 2, 4], 1)
+
+
+def print_first_occurrence_index(s: str) -> str:
+    map = {}
+    result = []
+    for idx, char in enumerate(s):
+        if char in map:
+            continue
+        else:
+            map[char] = idx
+
+    for alphabet in ascii_lowercase:
+        if alphabet in map:
+            result.append(map[alphabet])
+        else:
+            result.append(-1)
+
+    print(" ".join(str(num) for num in result))
+
+
+print_first_occurrence_index("baekjoon")
