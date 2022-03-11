@@ -3,6 +3,7 @@
 # 최빈값 찾기
 import collections
 from pprint import pprint
+from typing import List
 
 text = "hello, this is sparta"
 
@@ -19,4 +20,26 @@ def find_max_occurance(text: str) -> str:
     return max(counter, key=counter.get)
 
 
-pprint(find_max_occurance(text))
+find_max_occurance(text)
+
+
+def find_number_in_array(nums: List[int], target) -> bool:
+    nums.sort()
+    left = 0
+    right = len(nums) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        mid_value = nums[mid]
+        if mid_value == target:
+            return True
+
+        if mid_value > target:
+            right = mid - 1
+        elif mid_value < target:
+            left = mid + 1
+
+    return False
+
+
+find_number_in_array([3, 5, 6, 1, 2, 4], 1)
