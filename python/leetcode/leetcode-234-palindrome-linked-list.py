@@ -19,27 +19,35 @@ head = temp.next
 
 
 def is_palindrome(head: ListNode) -> bool:
-    rev = None
     slow = head
     fast = head
 
+    # fast at the end or at None position
+    # for what? find the middle, cut the linked list into half
     while fast and fast.next:
         fast = fast.next.next
-
-        # temprev = rev
-        # rev = slow
-        # slow = slow.next
-        # rev.next = temprev
-        rev, rev.next, slow = slow, rev, slow.next
-
-    if fast:
         slow = slow.next
 
-    while rev and rev.val == slow.val:
-        slow = slow.next
-        rev = rev.next
+    # None at the end (1 -> 2 -> 2 -> 1 -> None)
+    # 2 -> 1 -> None
+    prev_node = None
+    curr_node = slow
+    while curr_node is not None:
+        next_node = curr_node.next
+        # 포인터 방향이 변하는 지점.
+        curr_node.next = prev_node
+        prev_node = curr_node
+        curr_node = next_node
 
-    return not rev
+    left, right = head, prev_node
+
+    while right:
+        if left.val != right.val:
+            return False
+        left = left.next
+        right = right.next
+
+    return True
 
 
-is_palindrome(head)
+print(is_palindrome(head))
