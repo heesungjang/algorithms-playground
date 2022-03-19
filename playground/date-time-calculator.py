@@ -3,7 +3,6 @@ validating user input and encapsulating functions
 https://stackoverflow.com/questions/23294658/asking-the-user-for-input-until-they-give-a-valid-response
 """
 import datetime, time
-import math
 
 SECONDS_IN_YEAR = 365 * 60 * 60 * 24
 SECONDS_IN_DAY = 60 * 60 * 24
@@ -17,7 +16,7 @@ def determine_leap(year: int) -> bool:
     if (year % 400 == 0) and (year % 100 == 0):
         return True
 
-    # not divided by 100 means not a century year
+    # not divided by 100 means that it's not a century years
     # year divided by 4 is a leap year
     elif (year % 4 == 0) and (year % 100 != 0):
         return True
@@ -29,8 +28,16 @@ def determine_leap(year: int) -> bool:
 
 
 def get_event_name(prompt: str) -> str:
-    input_name = ""
+    """
+    Prompt user to enter the event name
 
+    Repeat the prompt if:
+    1. type of event name is not a string
+    2. empty event name
+    :return: event name (str)
+    """
+
+    input_name = ""
     while True:
         input_name = input(prompt)
         if not input_name:
@@ -42,8 +49,16 @@ def get_event_name(prompt: str) -> str:
 
 
 def get_event_year(prompt: str) -> int:
-    input_year = 0
+    """
+    prompt user to enter the year of the event
 
+    Repeat the prompt if:
+    1. type of event year is not a number
+    2. if entered event year is before 1970
+    :return: event year (int)
+    """
+
+    input_year = 0
     while True:
         try:
             input_year = int(input(prompt))
@@ -61,6 +76,16 @@ def get_event_year(prompt: str) -> int:
 
 
 def get_event_month(prompt: str) -> int:
+    """
+    prompt user for the month of the event
+
+    Repeat the prompt if:
+    1. type of event month is not a number
+    2. if entered month is out of range (1-12)
+
+    :return: event month (int)
+    """
+
     input_month = 0
     while True:
         try:
@@ -78,6 +103,15 @@ def get_event_month(prompt: str) -> int:
 
 
 def get_event_day(prompt: str, year, month) -> int:
+    """
+    prompt user for the event day
+
+    Repeat the prompt if:
+    1. the type of entered event day is not a number
+    2. entered day is out of range for particular month
+
+    :return: event day (int)
+    """
     input_day = 0
     leap_year = determine_leap(year)
 
@@ -118,8 +152,10 @@ event_time_in_seconds = time.mktime(event_time.timetuple())
 
 current_time_in_seconds = time.time()
 
+# time difference between current time and event time
 time_difference = abs(event_time_in_seconds - current_time_in_seconds)
 
+# event is from past if time difference is negative, vice versa if positive.
 is_future = event_time_in_seconds - current_time_in_seconds > 0
 
 years_to_event = int(time_difference // SECONDS_IN_YEAR)
@@ -132,6 +168,7 @@ minutes_to_event = int((time_difference % SECONDS_IN_HOUR) // SECONDS_IN_MINUTE)
 
 seconds_to_event = int(time_difference % SECONDS_IN_MINUTE)
 
+# mapped months words in english for print statement.
 month_map = {1: "January", 2: "February", 3: "March",
              4: "April", 5: "May", 6: "June",
              7: "July", 8: "August", 9: "September",
