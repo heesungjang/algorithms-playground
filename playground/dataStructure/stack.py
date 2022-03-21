@@ -23,16 +23,3 @@ class Stack:
 
     def is_empty(self):
         return self.top is None
-
-
-stack = Stack()
-
-print(stack.is_empty())
-stack.push(2)
-stack.push(3)
-stack.push(5)
-print(stack.is_empty())
-print(stack.pop())
-print(stack.pop())
-print(stack.pop())
-print(stack.is_empty())
