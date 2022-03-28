@@ -19,6 +19,7 @@ def coin_change(coins: List[int], amount: int) -> int:
 coin_change([186, 419, 83, 408], 6249)
 
 
+## 다이나믹 프로그래밍
 def coin_change_dp(coins: List[int], amount: int) -> int:
     # 0부터 amount까지 포함하는 배열 초기화
     dp = [float("inf") for amount in range(amount + 1)]
