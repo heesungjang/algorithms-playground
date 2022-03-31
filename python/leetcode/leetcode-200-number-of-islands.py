@@ -9,8 +9,7 @@ grid = [
 
 
 def numIslands(grid: List[List[str]]) -> int:
-    # count
-
+    # count = dfs cycle = number of island
     count = 0
 
     for r in range(len(grid)):
@@ -29,15 +28,11 @@ def dfs(grid, r, c):
     if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]) or grid[r][c] != "1":
         return
 
-    grid[r][c] = '0'
+    grid[r][c] = "0"
 
-    # dfs(grid, r + 1, c)
-    # dfs(grid, r + -1, c)
-    # dfs(grid, r, c + 1)
-    # dfs(grid, r, c - 1)
-    
     for i in range(4):
         dfs(grid, r + dy[i], c + dx[i])
+
     return
 
 
