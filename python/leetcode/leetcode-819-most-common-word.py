@@ -1,21 +1,19 @@
 import collections
-import re
 from typing import List
+
+a = "Bob hit a ball, the hit BALL flew far after it was hit."
 
 
 def most_common_word(paragraph: str, banned: List[str]) -> str:
-    words = [word for word in re.sub(r'[^\w]', " ", paragraph)
-        .lower().split()
-             if word not in banned]
+    # replace := 문자열 치환후, 새로운 문자열 반환
+    for c in "!?',;.": paragraph = paragraph.replace(c, " ")
 
-    # words = re.sub(r'[^\w]', " ", paragraph).lower().split()
-    counts = collections.Counter(words)
+    words = [word for word in paragraph.lower().split() if word not in banned]
 
-    return counts.most_common(1)[0][0]
+    counter = collections.Counter(words)
+
+    return counter.most_common(1)[0][0]
 
 
-p = "Bob hit a ball, the hit BALL flew far after it was hit."
-
-b = ["hit"]
-
-most_common_word(p, b)
+result = most_common_word(a, ["hit"])
+print(result)
