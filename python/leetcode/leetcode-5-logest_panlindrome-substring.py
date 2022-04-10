@@ -1,63 +1,32 @@
-# def get_longest_palindrome_from(str, start, end):
-#     while start >= 0 and end < len(str):
-#         if str[start] != str[end]:
-#             break
-#         start -= 1
-#         end += 1
-#
-#     return [start + 1, end]
-#
-#
-# def longest_palindrome_substring(strs: str) -> str:
-#     # string[0:1] = this will be used as slicing indexes.
-#     current_longest = [0, 1]
-#
-#     for i in range(1, len(strs)):
-#         odd_center = get_longest_palindrome_from(strs, i - 1, i + 1)
-#         even_center = get_longest_palindrome_from(strs, i - 1, i)
-#         logest = max(odd_center, even_center, key=lambda x: x[1] - x[0])
-#         current_longest = max(logest, current_longest, key=lambda x: x[1] - x[0])
-#
-#     return strs[current_longest[0]: current_longest[1]]
-#
-#
-strs = "abb"
-
-
-#
-# print(longest_palindrome_substring(strs))
-
-
-def find_longest_palindrome(string, left, right):
-    if right == len(string) - 1 and string[right - 1] == string[right]:
-        return string[right - 1:right + 1]
-
-    while left >= 0 and right < len(string):
-        if string[left] != string[right]:
-            break
+def expand(s, left, right):
+    while left >= 0 and right < len(s) and s[left] == s[right]:
         left -= 1
         right += 1
 
-    return string[left + 1:right]
+    return s[left + 1: right]
 
 
-def longest_palindrome(strs: str) -> str:
-    # if strs length is less than 2, it is palindrome
-    # if reversed strs is equal to strs, it is the longest palindrome
-    if len(strs) < 2 or strs == strs[::-1]:
-        return strs
+def longest_palindrome(s: str):
+    # 1. s가 길이가 2보다 작거나 즉, a 처럼 싱글 문자 이거나 또는
+    # 2. 입렵 문자열 자체가 palindrome 일 때
+    # 입력 문자열 그대로 리턴
+    if len(s) < 2 or s == s[::-1]:
+        return s
 
-    # initial longest is the first single character in string
-    current_longest = strs[0:1]
+    # 가장긴 palindrome 을 저장
+    result = ""
+    # 마지막 문자는 어차피 palindrome 이 아니기 때문에 len() - 1 까지만 반복
+    for i in range(len(s) - 1):
+        # 각 인덱스 위치에서 찾은 palindrome중 길이를 key 가장 큰 값을 result 에 저장
+        result = max(result,
+                     expand(s, i, i + 1),  # even 일 경우
+                     expand(s, i, i + 2),  # odd 일 경우
+                     key=len)
 
-    # iterate through strings and find the longest palindrome
-    for i in range(1, len(strs) - 1):
-        even_longest = find_longest_palindrome(strs, i - 1, i + 1)
-        odd_longest = find_longest_palindrome(strs, i - 1, i)
-        longest = max(even_longest, odd_longest, key=len)
-        current_longest = max(longest, current_longest, key=len)
-
-    return current_longest
+    return result
 
 
-print(longest_palindrome(strs))
+odd = longest_palindrome("babad")
+print(odd)
+even = longest_palindrome("cbbd")
+print(even)
