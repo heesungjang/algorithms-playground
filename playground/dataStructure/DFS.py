@@ -1,40 +1,36 @@
-g = [
-    [],
-    [2, 3, 4],
-    [5],
-    [5],
-    [],
-    [6, 7],
-    [],
-    [3],
-]
+graph = {
+    1: [2, 3, 4],
+    2: [5],
+    3: [5],
+    4: [],
+    5: [6, 7],
+    6: [],
+    7: [3],
+}
 
 
-def bfs_recursive(graph, node, visited=[]):
-    # 첫번째 노드 vertex 처리
+def dfs_stack(start):
+    stack, visited = [start], []
+
+    while stack:
+        curr_node = stack.pop()
+        visited.append(curr_node)
+
+        for adj in graph[curr_node]:
+            if adj not in visited:
+                stack.append(adj)
+    return visited
+
+
+def dfs_recursive(node, visited):
     visited.append(node)
 
     for adj in graph[node]:
         if adj not in visited:
-            bfs_recursive(graph, adj, visited)
+            dfs_recursive(adj, visited)
 
     return visited
 
 
-def bfs_stack(graph, start):
-    visited = []
-
-    stack = [start]
-
-    while stack:
-        top = stack.pop()
-        visited.append(top)
-        for adj in graph[top]:
-            if adj not in visited:
-                stack.append(adj)
-
-    return visited
-
-
-print(bfs_recursive(g, 1))
-print(bfs_stack(g, 1))
+assert dfs_recursive(1, []) == [1, 2, 5, 6, 7, 3, 4]
+assert dfs_stack(1) == [1, 4, 3, 5, 7, 6, 2]

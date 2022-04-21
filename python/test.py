@@ -1,20 +1,40 @@
-def is_valid_parentheses(s: str) -> bool:
-    stack = []
-    table = {
-        ')': '(',
-        '}': '{',
-        ']': '[',
-    }
-    # 스택 이용 예외 처리 및 일치 여부 판별
-    for char in s:
-        if char not in table:
-            stack.append(char)
-        elif not stack or table[char] != stack.pop():
-            return False
+from typing import List
 
-    return len(stack) == 0
+g = [
+    ["1", "1", "1", "1", "0"],
+    ["1", "1", "0", "1", "0"],
+    ["1", "1", "0", "0", "0"],
+    ["0", "0", "0", "0", "0"]
+]
 
 
-result = is_valid_parentheses("(]")
+def num_island(grid: List[List[str]]) -> int:
+    dx = [0, 0, 1, -1]
+    dy = [1, -1, 0, 0]
 
-print(result)
+    count = 0
+
+    rows, columns = len(grid), len(grid[0])
+
+    for row in range(rows):
+        for column in range(columns):
+            if grid[row][column] != "1":
+                continue
+
+            count += 1
+            stack = [(row, column)]
+
+            while stack:
+                x, y = stack.pop()
+                grid[x][y] = "0"
+
+
+assert num_island([["1", "1", "1", "1", "0"],
+                   ["1", "1", "0", "1", "0"],
+                   ["1", "1", "0", "0", "0"],
+                   ["0", "0", "0", "0", "0"]]) == 1
+
+assert num_island([["1", "1", "0", "0", "0"],
+                   ["1", "1", "0", "1", "0"],
+                   ["0", "0", "1", "0", "0"],
+                   ["0", "1", "0", "1", "1"]]) == 5
