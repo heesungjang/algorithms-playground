@@ -3,7 +3,7 @@
 
 
 ### Sliding Window Questions:
-dir: /playground/sliding_windows
+solutions: /playground/sliding_windows
 
 1. [leetcode 3. longest substring without repeating characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
