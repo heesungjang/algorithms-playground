@@ -10,22 +10,24 @@ class Queue:
         self.tail = None
 
     def enqueue(self, value):
-        new_node = Node(value)
-
-        if self.head is None:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.tail.next = new_node
-            self.tail = self.tail.next
+        pass
+        # new_node = Node(value)
+        #
+        # if self.head is None:
+        #     self.head = new_node
+        #     self.tail = new_node
+        # else:
+        #     self.tail.next = new_node
+        #     self.tail = self.tail.next
 
     def dequeue(self):
-        if self.head is None:
-            return -1
-
-        front = self.head.data
-        self.head = self.head.next
-
-        if self.head is None:
-            self.tail = None
-        return front
+        pass
+        # if self.head is None:
+        #     return -1
+        #
+        # front = self.head.data
+        # self.head = self.head.next
+        #
+        # if self.head is None:
+        #     self.tail = None
+        # return front
