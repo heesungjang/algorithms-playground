@@ -1,33 +1,29 @@
-class Node:
-    def __init__(self, value, next=None):
-        self.value = value
-        self.next = next
+"""
+char set: a b c
 
 
-class Stack:
-    def __init__(self, value):
-        self.top = Node(value)
-
-    def get_top(self):
-        return self.top.value
-
-    def append(self, value):
-        cur_top = self.top
-
-        cur_top.next = Node(value)
-
-        self.top = cur_top.next
-
-    def pop(self):
-        pass
+a b c a b c b b
+l
+r
+"""
 
 
-stack = Stack(2)
+def longest_substring_without_duplicate(s: str) -> int:
+    seen = {}
 
-stack.append(3)
+    longest = cur_len = cur_start = 0
 
-print(stack.get_top())
+    for i, char in enumerate(s):
+        if char in seen and seen[char] >= cur_start:  # seen character should only apply to current window
+            cur_start = seen[char] + 1
+            cur_len = i - seen[char]
+            seen[char] = i
+        else:
+            seen[char] = i
+            cur_len += 1
+            longest = max(cur_len, longest)
+
+    return longest
 
 
-def some(a):
-    pass
+assert longest_substring_without_duplicate("abcabcbb")

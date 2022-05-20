@@ -24,4 +24,5 @@ def longest_substring(s: str) -> int:
     return longest
 
 
+# abcabcbb
 assert longest_substring("abcabcbb") == 3
