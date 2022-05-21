@@ -1,10 +1,5 @@
 """
 char set: a b c
-
-
-a b c a b c b b
-l
-r
 """
 
 
