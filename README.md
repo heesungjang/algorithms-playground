@@ -1,6 +1,11 @@
-📌 Study-algorithms
+![](https://velog.velcdn.com/images/heesungj7/post/1ae64de6-a38c-44dc-b56f-0a640946ef3c/image.png)
 
-### Sliding Window:
+## ✏️ 목차
+
+1. [Sliding Window](#sliding-window-)
+2. [Common Strategies](#common-strategies)
+
+### Sliding Window
 
 1. [leetcode 3. longest substring without repeating characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
    ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/sliding_windows/3.longest_substring_without_repeating_characters.py))
