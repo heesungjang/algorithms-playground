@@ -1,4 +1,6 @@
-![](https://velog.velcdn.com/images/heesungj7/post/1ae64de6-a38c-44dc-b56f-0a640946ef3c/image.png)
+<div style={{width:"100%", display:flex, justify-contents:center}}>
+   ![](https://velog.velcdn.com/images/heesungj7/post/1ae64de6-a38c-44dc-b56f-0a640946ef3c/image.png)
+</div>
 
 ## ✏️ 목차
 
