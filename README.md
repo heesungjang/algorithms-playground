@@ -1,5 +1,6 @@
-![](https://velog.velcdn.com/images/heesungj7/post/1ae64de6-a38c-44dc-b56f-0a640946ef3c/image.png)
-
+<p align="center">
+  <img src="https://velog.velcdn.com/images/heesungj7/post/1ae64de6-a38c-44dc-b56f-0a640946ef3c/image.png"/>
+</p> 
 
 ## ✏️ 목차
 
