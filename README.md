@@ -4,8 +4,8 @@
 
 ## ✏️ 목차
 
-1. [Sliding Window](#sliding-window-)
-2. [Common Strategies](#common-strategies)
+- [Sliding Window](#sliding-window-)
+- [Common Strategies](#common-strategies)
 
 ### Sliding Window
 
