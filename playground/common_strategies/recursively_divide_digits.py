@@ -56,3 +56,20 @@ def recursively_add_odd_digits(n: int) -> int:
 
 
 assert recursively_add_odd_digits(1527) == 13
+
+
+# 이번에는 n이 짝수라면 2로 나누고 홀수라면 3으로 나눠 1을 만들고
+# 최종적으로 몇번의 나눗셈이 필요했는지 재귀로 구해보자.
+
+
+def recursively_divide_to_make_1(n: int) -> int:
+    if n == 1:
+        return 0
+
+    if n % 2 == 0:
+        return recursively_divide_to_make_1(n // 2) + 1
+    else:
+        return recursively_divide_to_make_1(n // 3) + 1
+
+
+assert recursively_divide_to_make_1(230) == 6
