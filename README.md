@@ -19,3 +19,5 @@
 1. 최대 공약수
    구하기 ([커밋](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/fing_gcd.py))
 
+2. 재귀로 숫자 분할(쪼개기)
+   ([커밋](https://github.com/heesungjang/algorithms-playground/commit/bd7d6c3219e78dc9fdf61bc0aa47121486cb8516))
