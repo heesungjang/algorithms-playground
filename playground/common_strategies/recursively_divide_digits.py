@@ -39,7 +39,6 @@ assert recursively_add_squared_digits(654321) == 91
 
 
 # 조금 더 응용해서 이번에는 짝수를 제외한 합을 구해보자.
-
 def recursively_add_odd_digits(n: int) -> int:
     # 마지막 한자리 수의 값이 짝수라면 0을 리턴
     if n < 10:
