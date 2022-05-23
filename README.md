@@ -21,3 +21,6 @@
 
 2. 재귀로 숫자 분할(쪼개기)
    ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/recursively_divide_digits.py))
+
+3. 재귀와 수열(접근 방법)
+   ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/sequence_recursion.py))
