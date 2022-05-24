@@ -24,3 +24,8 @@
 
 3. 재귀와 수열(접근 방법)
    ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/sequence_recursion.py))
+
+### Simulation Strategies
+
+1. 날짜와 시간 계산하기
+   ([바로 가기]())
