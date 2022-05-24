@@ -27,3 +27,6 @@
 
 4. 날짜와 시간 계산하기
    ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/time_and_dates.py))
+
+5. 이진법과 십진법 변환
+   ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/express_in_binary.py))
