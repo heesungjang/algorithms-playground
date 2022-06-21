@@ -1,24 +1,41 @@
-"""
-char set: a b c
-"""
+def solution(numbers, hand):
+    answer = ''
+    keypad = {1: (0, 0), 2: (0, 1), 3: (0, 2),
+              4: (1, 0), 5: (1, 1), 6: (1, 2),
+              7: (2, 0), 8: (2, 1), 9: (2, 2),
+              '*': (3, 0), 0: (3, 1), '#': (3, 2)}
 
+    left = [1, 4, 7]
+    right = [3, 6, 9]
+    crr_lh = "*"
+    curr_rh = "#"
 
-def longest_substring_without_duplicate(s: str) -> int:
-    seen = {}
-
-    longest = cur_len = cur_start = 0
-
-    for i, char in enumerate(s):
-        if char in seen and seen[char] >= cur_start:  # seen character should only apply to current window
-            cur_start = seen[char] + 1
-            cur_len = i - seen[char]
-            seen[char] = i
+    for i in numbers:
+        if i in left:
+            answer += "L"
+            curr_lh = i
+        elif i in right:
+            answer += "R"
+            curr_rh = i
         else:
-            seen[char] = i
-            cur_len += 1
-            longest = max(cur_len, longest)
+            curPos = keypad[i]
+            lPos = keypad[curr_lh]
+            rPos = keypad[curr_rh]
+            ldist = abs(curPos[0] - lPos[0]) + abs(curPos[1] - lPos[1])
+            rdist = abs(curPos[0] - rPos[0]) + abs(curPos[1] - rPos[1])
 
-    return longest
+            if ldist < rdist:
+                answer += "L"
+                curr_lh = i
+            elif ldist > rdist:
+                answer += "R"
+                curr_rh = i
+            else:
+                if hand == "left":
+                    answer += "L"
+                    curr_lh = i
+                else:
+                    answer += "R"
+                    curr_rh = i
 
-
-assert longest_substring_without_duplicate("abcabcbb")
+    return answer
