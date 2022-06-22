@@ -35,4 +35,4 @@
    ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/elasped_section.py))
 
 7. 아스키 코드 범위 유지하기
-   ([바로 가기]())
+   ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/keep-ascii-range-for-alpha.py))
