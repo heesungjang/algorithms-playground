@@ -33,3 +33,6 @@
 
 6. 겹치는 지점, 구간 구하기
    ([바로 가기](https://github.com/heesungjang/algorithms-playground/blob/main/playground/common_strategies/elasped_section.py))
+
+7. 아스키 코드 범위 유지하기
+   ([바로 가기]())
