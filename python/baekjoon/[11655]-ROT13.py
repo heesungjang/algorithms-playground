@@ -1,5 +1,9 @@
-# target_str = input()
+strs = list(input())
 
-print(ord("a"))
+for i, s in enumerate(strs):
+    if s.islower():
+        strs[i] = chr((97 + (ord(s) + 13 - 97) % 26))
+    elif s.isupper():
+        strs[i] = chr((65 + (ord(s) + 13 - 65) % 26))
 
-print(chr(ord("a") + 13 - 26))
+print("".join(strs))
