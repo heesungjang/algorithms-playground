@@ -1,41 +1,29 @@
-def solution(numbers, hand):
-    answer = ''
-    keypad = {1: (0, 0), 2: (0, 1), 3: (0, 2),
-              4: (1, 0), 5: (1, 1), 6: (1, 2),
-              7: (2, 0), 8: (2, 1), 9: (2, 2),
-              '*': (3, 0), 0: (3, 1), '#': (3, 2)}
+map = [[0] * 100 for _ in range(100)]
 
-    left = [1, 4, 7]
-    right = [3, 6, 9]
-    crr_lh = "*"
-    curr_rh = "#"
+dy = [-1, 0, 1, 0]
+dx = [0, 1, 0, -1]
 
-    for i in numbers:
-        if i in left:
-            answer += "L"
-            curr_lh = i
-        elif i in right:
-            answer += "R"
-            curr_rh = i
-        else:
-            curPos = keypad[i]
-            lPos = keypad[curr_lh]
-            rPos = keypad[curr_rh]
-            ldist = abs(curPos[0] - lPos[0]) + abs(curPos[1] - lPos[1])
-            rdist = abs(curPos[0] - rPos[0]) + abs(curPos[1] - rPos[1])
+"""
+[ x x x x
+y[0 0 0 0]
+y[0 0 0 0]
+y[0 0 0 0]
+]
+"""
+# for i in range(len(map)):
+#     for j in range(len(map)):
+#         if i == 1 and j == 1:
+#             for k in range(4):
+#                 ny = i + dy[k]
+#                 nx = i + dx[k]
+#                 print(ny, nx)
 
-            if ldist < rdist:
-                answer += "L"
-                curr_lh = i
-            elif ldist > rdist:
-                answer += "R"
-                curr_rh = i
-            else:
-                if hand == "left":
-                    answer += "L"
-                    curr_lh = i
-                else:
-                    answer += "R"
-                    curr_rh = i
-
-    return answer
+for y in range(len(map)):
+    for x in range(len(map)):
+        if y == 0 and x == 0:
+            for d in range(4):
+                ny = y + dy[d]
+                nx = x + dx[d]
+                if ny < 0 or ny >= len(map) or nx < 0 or nx >= len(map):
+                    continue
+                print(ny, nx)
