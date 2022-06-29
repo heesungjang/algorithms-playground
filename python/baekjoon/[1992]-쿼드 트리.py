@@ -9,8 +9,8 @@ def quard(y, x, size):
     ret = ""
     num = image[y][x]
 
-    for j in range(y, y + n):
-        for i in range(x, x + n):
+    for j in range(y, y + size):
+        for i in range(x, x + size):
             if num != image[j][i]:
                 size //= 2
                 ret += "("
@@ -21,20 +21,8 @@ def quard(y, x, size):
 
                 ret += ")"
                 return ret
-    return str(image[y][x])
+    return str(num)
 
 
-quard(0, 0, n)
-
-"""
-[
-[1, 1, 1, 1, 0, 0, 0, 0], 
-[1, 1, 1, 1, 0, 0, 0, 0], 
-[0, 0, 0, 1, 1, 1, 0, 0], 
-[0, 0, 0, 1, 1, 1, 0, 0], 
-[1, 1, 1, 1, 0, 0, 0, 0], 
-[1, 1, 1, 1, 0, 0, 0, 0], 
-[1, 1, 1, 1, 0, 0, 1, 1], 
-[1, 1, 1, 1, 0, 0, 1, 1]
-]
-"""
+answer = quard(0, 0, n)
+print(answer)
