@@ -1,23 +1,11 @@
-n = int(input())
+def a(b):
+    b()
 
 
-def recur_add(n):
-    if n == 1:
-        return 1
-
-    return n + recur_add(n - 1)
+def c():
+    print("asd")
 
 
-answer = recur_add(n)
-print(answer)
+x = a
 
-
-def fibo(n):
-    if n == 1 or n == 2:
-        return 1
-
-    return fibo(n - 1) + fibo(n - 2)
-
-
-answer1 = fibo(10)
-print(answer1)
+print(a == x)
