@@ -16,6 +16,7 @@ var twoSome = function (nums, target) {
   return answer;
 };
 
+comments.push(res.data);
 /**
  * 해쉬
  */
